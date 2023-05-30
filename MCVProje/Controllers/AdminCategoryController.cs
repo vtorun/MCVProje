@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -49,6 +50,18 @@ namespace MCVProje.Controllers
         {
             var categoryValue = categoryManager.GetById(id);
             categoryManager.CategoryRemove(categoryValue);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var categoryValue = categoryManager.GetById(id);
+            return View(categoryValue);
+        }
+        [HttpPost]
+        public ActionResult UpdateCategory(Category category)
+        {
+            categoryManager.CategoryUpdate(category);
             return RedirectToAction("Index");
         }
     }
