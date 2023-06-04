@@ -46,5 +46,31 @@ namespace MCVProje.Controllers
             headingManager.HeadingAdd(heading);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult UpdateHeading(int id)
+        {
+            List<SelectListItem> valueCategory = (from x in categoryManager.GetListCategory()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.categoryValue = valueCategory;
+            var headingValues = headingManager.GetById(id);
+            return View(headingValues);
+        }
+        [HttpPost]
+        public ActionResult UpdateHeading(Heading heading)
+        {
+            headingManager.HeadingUpdate(heading);
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteHeading(int id)
+        {
+            var headingValue = headingManager.GetById(id);
+            headingValue.HeadingStatus = false;
+            headingManager.HeadingUpdate(headingValue);
+            return RedirectToAction("Index");
+        }
     }
 }
