@@ -68,8 +68,7 @@ namespace MCVProje.Controllers
         public ActionResult DeleteHeading(int id)
         {
             var headingValue = headingManager.GetById(id);
-            headingValue.HeadingStatus = false;
-            headingManager.HeadingUpdate(headingValue);
+            headingManager.HeadingRemove(headingValue);
             return RedirectToAction("Index");
         }
     }

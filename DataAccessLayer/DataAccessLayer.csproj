@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
-    <Compile Include="Abstract\IContactDalcs.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
@@ -87,6 +87,14 @@
     <Compile Include="Migrations\202306022020050_mig_headingStatus_add.designer.cs">
       <DependentUpon>202306022020050_mig_headingStatus_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306051744584_mig_aboutstatus_add.cs" />
+    <Compile Include="Migrations\202306051744584_mig_aboutstatus_add.designer.cs">
+      <DependentUpon>202306051744584_mig_aboutstatus_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306051746269_mig_aboutStatus_update.cs" />
+    <Compile Include="Migrations\202306051746269_mig_aboutStatus_update.designer.cs">
+      <DependentUpon>202306051746269_mig_aboutStatus_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306022020050_mig_headingStatus_add.resx">
       <DependentUpon>202306022020050_mig_headingStatus_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306051744584_mig_aboutstatus_add.resx">
+      <DependentUpon>202306051744584_mig_aboutstatus_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306051746269_mig_aboutStatus_update.resx">
+      <DependentUpon>202306051746269_mig_aboutStatus_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

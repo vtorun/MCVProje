@@ -81,7 +81,15 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    @item.HeadingStatus
+                                    @if (item.HeadingStatus == true)
+                                    {
+                                        <p class="badge badge-success">Aktif</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="badge badge-danger">Pasif</p>
+                                    }
+
                                 </td>
                                 <td class="project-state">
                                     <span class="badge badge-success">@item.Category.CategoryName</span>
@@ -97,11 +105,22 @@
                                         </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
+
+                                    @if (item.HeadingStatus == true)
+                                    {
+                                        <a class="btn btn-success" href="/Heading/DeleteHeading/@item.HeadingId">
+                                            <i class="fas fa-trash">
+                                            </i>Pasif Yap
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
+                                            <i class="fas fa-trash">
+                                            </i>Aktif Yap
+                                        </a>
+                                    }
+
                                 </td>
                             </tr>
                         }
