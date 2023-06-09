@@ -14,6 +14,7 @@ namespace MCVProje.Controllers
         // GET: Contact
         ContactManager contactManager = new ContactManager(new EfContactDal());
         ContactValidator contactValidator = new ContactValidator();
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
         public ActionResult Index()
         {
             var contactValues = contactManager.GetListContact();
@@ -23,6 +24,16 @@ namespace MCVProje.Controllers
         {
             var contactValues = contactManager.GetById(id);
             return View(contactValues);
+        }
+        public PartialViewResult MessageListMenu()
+        {
+            //string userEmail = (string)Session["AdminUserName"];
+            var contactValues = contactManager.GetListContact().Count();
+            ViewBag.iletisim = contactValues;
+            ViewBag.Giden = messageManager.GetListSendbox("admin@gmail.com").Count();
+            ViewBag.Gelen = messageManager.GetListInbox("admin@gmail.com").Count();
+            ViewBag.OkunmayanMesaj = messageManager.MessageNoRead("admin@gmail.com").Count();
+            return PartialView();
         }
     }
 }
