@@ -12,6 +12,8 @@ namespace MCVProje.Controllers
     {
         // GET: Galeri
         ImageFileManager imageFileManager = new ImageFileManager(new EfImageFileDal());
+
+        [Authorize(Roles = "B")]
         public ActionResult GalleryIndex()
         {
             var imageFiles = imageFileManager.GetAll();

@@ -17,7 +17,7 @@ namespace MCVProje.Controllers
         // GET: AdminCategory
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
-        [Authorize]
+        
         public ActionResult Index()
         {
             var categoryList = categoryManager.GetListCategory();

@@ -29,8 +29,11 @@ namespace MCVProje.Controllers
             var adminuserinfo = adminManager.GetByAdmin(admin.AdminUserName, admin.AdminPassword);
             if (adminuserinfo != null)
             {
+                adminuserinfo.AdminUserName = Cryptology.Decryption(adminuserinfo.AdminUserName);
+                adminuserinfo.AdminPassword = Cryptology.Decryption(adminuserinfo.AdminPassword);
                 FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
-                Session["AdminUserName"] = Cryptology.Decryption(adminuserinfo.AdminUserName);
+                Session["AdminUserName"] = adminuserinfo.AdminUserName;
+                //Session["AdminUserName"] = Cryptology.Decryption(adminuserinfo.AdminUserName);
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
