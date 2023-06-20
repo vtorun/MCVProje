@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Hashing;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using Entity.Concrete;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,14 @@ namespace BusinessLayer.Concrete
             return _writerDal.Get(x => x.WriterId == id); ;
         }
 
+        public Writer GetByWriter(string userName, string password)
+        {
+            //string kullaniciAdi =Cryptology.Encryption(userName);
+            //string sifre = Cryptology.Encryption(password);
+            //return _writerDal.Get(x => x.WriterMail == kullaniciAdi && x.WriterPassword == sifre);
+            return _writerDal.Get(x => x.WriterMail == userName && x.WriterPassword == password);
+        }
+
         public List<Writer> GetListWriter()
         {
             return _writerDal.List();
@@ -31,6 +41,8 @@ namespace BusinessLayer.Concrete
 
         public void WriterAdd(Writer writer)
         {
+            //writer.WriterMail = Cryptology.Encryption(writer.WriterMail);
+            //writer.WriterPassword = Cryptology.Encryption(writer.WriterPassword);
             _writerDal.Add(writer);
         }
 

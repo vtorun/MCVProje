@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using Entity.Concrete;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace BusinessLayer.Abstract
         Writer GetById(int id);
         void WriterRemove(Writer writer);
         void WriterUpdate(Writer writer);
+        Writer GetByWriter(string userName, string password);
     }
 }
