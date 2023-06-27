@@ -30,7 +30,7 @@ namespace MCVProje.Controllers
                 //adminuserinfo.WriterMail = Cryptology.Decryption(adminuserinfo.WriterMail);
                 //adminuserinfo.WriterPassword = Cryptology.Decryption(adminuserinfo.WriterPassword);
                 FormsAuthentication.SetAuthCookie(adminuserinfo.WriterMail, false);
-                Session["AdminUserName"] = adminuserinfo.WriterPassword;
+                Session["AdminUserName"] = adminuserinfo.WriterMail;
                 //Session["AdminUserName"] = Cryptology.Decryption(adminuserinfo.AdminUserName);
                 return RedirectToAction("MyHeading", "WriterPanel");
             }

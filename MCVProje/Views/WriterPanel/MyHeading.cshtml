@@ -1,7 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MyHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
@@ -108,14 +108,14 @@
 
                                     @if (item.HeadingStatus == true)
                                     {
-                                        <a class="btn btn-success" href="/WriterPanel/DeleteHeading/@item.HeadingId">
+                                        <a class="btn btn-success" href="/Heading/DeleteHeading/@item.HeadingId">
                                             <i class="fas fa-trash">
                                             </i>Pasif Yap
                                         </a>
                                     }
                                     else
                                     {
-                                        <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingId">
+                                        <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
                                             <i class="fas fa-trash">
                                             </i>Aktif Yap
                                         </a>
@@ -133,4 +133,5 @@
     </section>
 </body>
 </html>
-<a href="/WriterPanel/AddHeading/" class="btn btn-primary">YENİ BAŞLIK</a>
+<a href="/WriterPanel/NewHeading/" class="btn btn-primary">YENİ BAŞLIK</a>
+

@@ -151,8 +151,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
-    <Compile Include="Controllers\WriterMesajController.cs" />
-    <Compile Include="Controllers\WriterPanelContentController.cs" />
     <Compile Include="Controllers\WriterPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2701,18 +2699,11 @@
     <Content Include="Views\ErrorPage\Page401.cshtml" />
     <Content Include="Views\AdminLogin\Index.cshtml" />
     <Content Include="Views\Shared\_WriterLayout.cshtml" />
+    <Content Include="Views\Login\WriterLogin.cshtml" />
     <Content Include="Views\WriterPanel\WriterProfile.cshtml" />
     <Content Include="Views\WriterPanel\MyHeading.cshtml" />
-    <Content Include="Views\WriterPanel\AddHeading.cshtml" />
+    <Content Include="Views\WriterPanel\NewHeading.cshtml" />
     <Content Include="Views\WriterPanel\UpdateHeading.cshtml" />
-    <Content Include="Views\WriterMesaj\Inbox.cshtml" />
-    <Content Include="Views\WriterMesaj\MessageListMenu.cshtml" />
-    <Content Include="Views\WriterMesaj\Sendbox.cshtml" />
-    <Content Include="Views\WriterMesaj\GetInBoxMessageDetails.cshtml" />
-    <Content Include="Views\WriterMesaj\GetSendBoxMessageDetails.cshtml" />
-    <Content Include="Views\WriterMesaj\NewMessage.cshtml" />
-    <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
-    <Content Include="Views\Login\WriterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

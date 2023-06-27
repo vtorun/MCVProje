@@ -1,5 +1,4 @@
 ﻿using BusinessLayer.Concrete;
-using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -7,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using static System.Collections.Specialized.BitVector32;
 
 namespace MCVProje.Controllers
 {
@@ -16,19 +14,17 @@ namespace MCVProje.Controllers
         // GET: WriterPanel
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        Context context = new Context();
         public ActionResult WriterProfile()
         {
             return View();
         }
-        [AllowAnonymous]
         public ActionResult MyHeading()
         {
             var values = headingManager.GetListHeadingByWriter();
             return View(values);
         }
         [HttpGet]
-        public ActionResult AddHeading()
+        public ActionResult NewHeading()
         {
             List<SelectListItem> valueCategory = (from x in categoryManager.GetListCategory()
                                                   select new SelectListItem
@@ -40,10 +36,10 @@ namespace MCVProje.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddHeading(Heading heading)
+        public ActionResult NewHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortTimeString());
-            heading.WriterId = 2;
+            heading.WriterId = 1;
             heading.HeadingStatus = false;
             headingManager.HeadingAdd(heading);
             return RedirectToAction("MyHeading");
@@ -66,12 +62,6 @@ namespace MCVProje.Controllers
         public ActionResult UpdateHeading(Heading heading)
         {
             headingManager.HeadingUpdate(heading);
-            return RedirectToAction("MyHeading");
-        }
-        public ActionResult DeleteHeading(int id)
-        {
-            var headingValue = headingManager.GetById(id);
-            headingManager.HeadingRemove(headingValue);
             return RedirectToAction("MyHeading");
         }
     }
