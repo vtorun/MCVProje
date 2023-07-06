@@ -24,13 +24,13 @@ namespace MCVProje.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            var adminuserinfo = writerManager.GetByWriter(writer.WriterMail, writer.WriterPassword);
-            if (adminuserinfo != null)
+            var writeruserinfo = writerManager.GetByWriter(writer.WriterMail, writer.WriterPassword);
+            if (writeruserinfo != null)
             {
                 //adminuserinfo.WriterMail = Cryptology.Decryption(adminuserinfo.WriterMail);
                 //adminuserinfo.WriterPassword = Cryptology.Decryption(adminuserinfo.WriterPassword);
-                FormsAuthentication.SetAuthCookie(adminuserinfo.WriterMail, false);
-                Session["AdminUserName"] = adminuserinfo.WriterMail;
+                FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);
+                Session["WriterMail"] = writeruserinfo.WriterMail;
                 //Session["AdminUserName"] = Cryptology.Decryption(adminuserinfo.AdminUserName);
                 return RedirectToAction("MyHeading", "WriterPanel");
             }

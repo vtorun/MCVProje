@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.11.5.2\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
@@ -57,6 +58,7 @@
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IHeadingService.cs" />
     <Compile Include="Abstract\IImageFileService.cs" />
+    <Compile Include="Abstract\ILoginService.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Abstract\IWriterService.cs" />
     <Compile Include="Concrete\AboutManager.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\HeadingManager.cs" />
     <Compile Include="Concrete\ImageFileManager.cs" />
+    <Compile Include="Concrete\LoginManager.cs" />
     <Compile Include="Concrete\MessageManager.cs" />
     <Compile Include="Concrete\WriterManager.cs" />
     <Compile Include="Hashing\Cryptology.cs" />
