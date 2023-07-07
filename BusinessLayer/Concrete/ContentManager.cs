@@ -50,7 +50,7 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetListContent()
         {
-            throw new NotImplementedException();
+            return _contentDal.List();
         }
     }
 }
