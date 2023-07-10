@@ -59,9 +59,9 @@ namespace BusinessLayer.Concrete
             _messageDal.Update(message);
         }
 
-        public List<Message> GetList()
+        public List<Message> GetList(string mail)
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
+            return _messageDal.List(x => x.ReceiverMail == mail);
         }
     }
 }

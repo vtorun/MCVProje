@@ -19,13 +19,13 @@ namespace MCVProje.Controllers
         public ActionResult Inbox()
         {
             //string userEmail = Session["AdminUserName"].ToString();
-            var messageList = messageManager.GetListInbox("kayla@gmail.com");
+            var messageList = messageManager.GetListInbox((string)Session["WriterMail"]);
             return View(messageList);
         }
         public ActionResult Sendbox()
         {
             //string userEmail = Session["AdminUserName"].ToString();
-            var messageList = messageManager.GetListSendbox("kayla@gmail.com");
+            var messageList = messageManager.GetListSendbox((string)Session["WriterMail"]);
             return View(messageList);
         }
         [HttpGet]
@@ -42,7 +42,7 @@ namespace MCVProje.Controllers
             ValidationResult validationResult = messageValidator.Validate(message);
             if (validationResult.IsValid)
             {
-                message.SenderMail = "kayla@gmail.com";
+                message.SenderMail = (string)Session["WriterMail"];
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.MessageAdd(message);
                 return RedirectToAction("SendBox");

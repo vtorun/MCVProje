@@ -78,5 +78,10 @@ namespace MCVProje.Controllers
             headingManager.HeadingRemove(headingValue);
             return RedirectToAction("MyHeading");
         }
+        public ActionResult AllHeadings()
+        {
+            var headings = headingManager.GetListHeading();
+            return View(headings);
+        }
     }
 }

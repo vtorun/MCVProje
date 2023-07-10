@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace MCVProje.Controllers
             return View(headingList);
         }
 
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id = 0)
         {
-            var contentList = contentManager.GetListContent();
+            var contentList = contentManager.GetListByHeadingId(id);
             return PartialView(contentList);
         }
     }

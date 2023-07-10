@@ -28,11 +28,10 @@ namespace MCVProje.Controllers
         public PartialViewResult MessageListMenu()
         {
             //string userEmail = (string)Session["AdminUserName"];
-            var contactValues = contactManager.GetListContact().Count();
-            ViewBag.iletisim = contactValues;
-            ViewBag.Giden = messageManager.GetListSendbox("admin@gmail.com").Count();
-            ViewBag.Gelen = messageManager.GetListInbox("admin@gmail.com").Count();
-            ViewBag.OkunmayanMesaj = messageManager.MessageNoRead("admin@gmail.com").Count();
+            ViewBag.iletisim = contactManager.GetListContact().Count();
+            ViewBag.Giden = messageManager.GetListSendbox((string)Session["WriterMail"]).Count();
+            ViewBag.Gelen = messageManager.GetListInbox((string)Session["WriterMail"]).Count();
+            ViewBag.OkunmayanMesaj = messageManager.MessageNoRead((string)Session["WriterMail"]).Count();
             return PartialView();
         }
     }

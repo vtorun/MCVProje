@@ -12,7 +12,7 @@ namespace BusinessLayer.Abstract
         List<Message> GetListInbox(string email);
         List<Message> GetListSendbox(string email);
         List<Message> GetListByMessageId(int id);
-        List<Message> GetList();
+        List<Message> GetList(string mail);
         void MessageAdd(Message message);
         Message GetById(int id);
         void MessageDelete(Message message);

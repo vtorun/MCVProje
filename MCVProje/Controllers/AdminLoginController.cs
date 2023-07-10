@@ -32,7 +32,7 @@ namespace MCVProje.Controllers
                 adminuserinfo.AdminUserName = Cryptology.Decryption(adminuserinfo.AdminUserName);
                 adminuserinfo.AdminPassword = Cryptology.Decryption(adminuserinfo.AdminPassword);
                 FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
-                Session["AdminUserName"] = adminuserinfo.AdminUserName;
+                Session["WriterMail"] = "admin@gmail.com";
                 //Session["AdminUserName"] = Cryptology.Decryption(adminuserinfo.AdminUserName);
                 return RedirectToAction("Index", "AdminCategory");
             }
